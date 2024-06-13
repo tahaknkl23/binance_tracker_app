@@ -11,6 +11,7 @@ class ApiService {
     final response = await _dio.get(_baseUrl);
     if (response.statusCode == 200) {
       final data = response.data["data"] as List;
+      debugPrint(data.toString());
       return data.map((e) => CryptoModel.fromJson(e)).toList();
     } else {
       throw Exception("Failed to load data");
