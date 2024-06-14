@@ -3,14 +3,14 @@ import 'package:binance_app/screens/crypto_screen.dart';
 import 'package:binance_app/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class PageScreen extends StatefulWidget {
+  const PageScreen({super.key});
 
   @override
-  HomeScreenState createState() => HomeScreenState();
+  PageScreenState createState() => PageScreenState();
 }
 
-class HomeScreenState extends State<HomeScreen> {
+class PageScreenState extends State<PageScreen> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
     const CryptosScreen(),

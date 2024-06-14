@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Crypto App',
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: PageScreen(),
     );
   }
 }
