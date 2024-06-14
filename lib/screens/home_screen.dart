@@ -13,7 +13,7 @@ class HomeScreen extends StatefulWidget {
 class HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
   final List<Widget> _pages = [
-    const CryptoScreen(),
+    const CryptosScreen(),
     const SettingsScreen(),
   ];
 

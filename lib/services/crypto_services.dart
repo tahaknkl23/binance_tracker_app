@@ -7,18 +7,16 @@ class ApiService {
 
   final _baseUrl = "https://api.coinlore.net/api/tickers/";
 
-  Future<List<CryptoModel>> fetchCryptoData() async {
+  Future<List<Data>> fetchCryptoData() async {
     final response = await _dio.get(_baseUrl);
     if (response.statusCode == 200) {
+      debugPrint(response.toString());
+
       final data = response.data["data"] as List;
-      debugPrint(data.toString());
-      return data.map((e) => CryptoModel.fromJson(e)).toList();
+      final cryptoList = data.map((e) => Data.fromJson(e)).toList();
+      return cryptoList;
     } else {
       throw Exception("Failed to load data");
     }
-
-    // debugPrint(response.data.toString());
-    // final data = response.data["data"] as List;
-    // return data.map((e) => CryptoModel.fromJson(e)).toList();
   }
 }
