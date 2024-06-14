@@ -13,15 +13,31 @@ class CryptosScreen extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cryptos'),
+        title: const Text(
+          'Cryptos',
+        ),
+        centerTitle: true,
       ),
       body: cryptoAsyncValue.when(
         data: (cryptoList) {
-          return ListView.builder(
-            itemCount: cryptoList.length,
-            itemBuilder: (context, index) {
-              return CryptoListItem(crypto: cryptoList[index]);
-            },
+          return Card(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ListView.builder(
+                itemCount: cryptoList.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      const Divider(),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: CryptoListItem(crypto: cryptoList[index]),
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ),
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
